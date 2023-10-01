@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
     public float cameraMoveSpeed = 120f;
     public GameObject cameraFollowObj;
-    Vector3 followPos;
     public float clampAngle = 80f;
     public float inputSensitivity = 150f;
 
@@ -18,13 +18,17 @@ public class ThirdPersonCamera : MonoBehaviour
         Vector3 rot = transform.localRotation.eulerAngles;
         rotY = rot.y;
         rotX = rot.x;
-        
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+
+        LockMouse();
     }
 
     private void Update()
     {
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            LockMouse();
+        }
+
         float mouseX = Input.GetAxisRaw("Mouse X");
         float mouseY = -Input.GetAxisRaw("Mouse Y");
 
@@ -35,11 +39,28 @@ public class ThirdPersonCamera : MonoBehaviour
 
         Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
         transform.rotation = localRotation;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UnlockMouse();
+        }
     }
 
     private void FixedUpdate()
     {
         CameraUpdater();
+    }
+
+    private void LockMouse()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    private void UnlockMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void CameraUpdater()

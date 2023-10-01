@@ -6,6 +6,10 @@ using UnityEngine.Pool;
 public class Planet : MonoBehaviour
 {
     public ObjectPool<Planet> pool;
+
+    public UIManager UIManager;
+    public LayerMask playerMask;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +22,19 @@ public class Planet : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (playerMask == (playerMask | (1 << other.gameObject.layer)))
+        {
+            UIManager.SetUIState(true);
+        }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (playerMask == (playerMask | (1 << other.gameObject.layer)))
+        {
+            UIManager.SetUIState(false);
+        }
+    }
 }
