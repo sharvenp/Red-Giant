@@ -5132,9 +5132,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitchPower: 12
-  rollPower: 15
+  rollPower: 12
   yawPower: 8
-  enginePower: 120
+  enginePower: 100
   rollAcceleration: 4
   pitchAcceleration: 4
   yawAcceleration: 5

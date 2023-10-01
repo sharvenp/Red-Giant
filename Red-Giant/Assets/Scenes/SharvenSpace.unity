@@ -644,38 +644,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7298769102911375421, guid: e67f69525a8703140b567e75490899d7,
         type: 3}
-      propertyPath: yawPower
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7298769102911375421, guid: e67f69525a8703140b567e75490899d7,
-        type: 3}
       propertyPath: rollPower
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7298769102911375421, guid: e67f69525a8703140b567e75490899d7,
-        type: 3}
-      propertyPath: pitchPower
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7298769102911375421, guid: e67f69525a8703140b567e75490899d7,
         type: 3}
       propertyPath: enginePower
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 7298769102911375421, guid: e67f69525a8703140b567e75490899d7,
-        type: 3}
-      propertyPath: yawAcceleration
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7298769102911375421, guid: e67f69525a8703140b567e75490899d7,
-        type: 3}
-      propertyPath: rollAcceleration
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7298769102911375421, guid: e67f69525a8703140b567e75490899d7,
-        type: 3}
-      propertyPath: pitchAcceleration
-      value: 4
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
