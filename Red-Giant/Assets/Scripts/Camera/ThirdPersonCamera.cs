@@ -25,8 +25,8 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = -Input.GetAxis("Mouse Y");
+        float mouseX = Input.GetAxisRaw("Mouse X");
+        float mouseY = -Input.GetAxisRaw("Mouse Y");
 
         rotY += mouseX * inputSensitivity * Time.deltaTime;
         rotX += mouseY * inputSensitivity * Time.deltaTime;

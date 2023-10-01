@@ -11,13 +11,17 @@ public class Player : MonoBehaviour
     public float pitchAcceleration = 2f;
     public float yawAcceleration = 2f;
 
-    private float activeRoll, activePitch, activeYaw;
+    public ParticleSystem backExhaust;
+    public ParticleSystem frontExhaust;
 
+    private float activeRoll, activePitch, activeYaw;
     Rigidbody rb;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        backExhaust.Stop();
+        frontExhaust.Stop();
     }
 
     private void Update()
@@ -27,11 +31,23 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             engine = enginePower;
+            backExhaust.Play();
         }
         
         if (Input.GetKey(KeyCode.LeftControl))
         {
             engine = -enginePower;
+            frontExhaust.Play();
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            backExhaust.Stop();
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            frontExhaust.Stop();
         }
 
         rb.AddForce(transform.forward * engine * Time.deltaTime);
