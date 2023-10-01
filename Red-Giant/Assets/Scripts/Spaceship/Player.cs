@@ -11,8 +11,8 @@ public class Player : MonoBehaviour
     public float pitchAcceleration = 2f;
     public float yawAcceleration = 2f;
 
-    public ParticleSystem backExhaust;
-    public ParticleSystem frontExhaust;
+    public ParticleSystem[] backExhausts;
+    public ParticleSystem[] frontExhausts;
 
     private float activeRoll, activePitch, activeYaw;
     Rigidbody rb;
@@ -20,8 +20,23 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        backExhaust.Stop();
-        frontExhaust.Stop();
+        UpdateExhausts(backExhausts, false);
+        UpdateExhausts(frontExhausts, false);
+    }
+
+    private void UpdateExhausts(ParticleSystem[] exhausts, bool isOn)
+    {
+        foreach(var exhaust in exhausts)
+        {
+            if (isOn && !exhaust.isPlaying)
+            {
+                exhaust.Play();
+            }
+            else if (!isOn && exhaust.isPlaying)
+            {
+                exhaust.Stop();
+            }
+        }
     }
 
     private void Update()
@@ -31,23 +46,23 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             engine = enginePower;
-            backExhaust.Play();
+            UpdateExhausts(backExhausts, true);
         }
-        
+
         if (Input.GetKey(KeyCode.LeftControl))
         {
             engine = -enginePower;
-            frontExhaust.Play();
+            UpdateExhausts(frontExhausts, true);
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            backExhaust.Stop();
+            UpdateExhausts(backExhausts, false);
         }
 
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-            frontExhaust.Stop();
+            UpdateExhausts(frontExhausts, false);
         }
 
         rb.AddForce(transform.forward * engine * Time.deltaTime);

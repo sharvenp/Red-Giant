@@ -28,10 +28,10 @@ public class ThirdPersonCamera : MonoBehaviour
         float mouseX = Input.GetAxisRaw("Mouse X");
         float mouseY = -Input.GetAxisRaw("Mouse Y");
 
-        rotY += mouseX * inputSensitivity * Time.deltaTime;
-        rotX += mouseY * inputSensitivity * Time.deltaTime;
+        rotY += mouseX * inputSensitivity;
+        rotX += mouseY * inputSensitivity;
 
-        //rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
+        rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
 
         Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
         transform.rotation = localRotation;
