@@ -87,8 +87,9 @@ GameObject:
   - component: {fileID: 8534208634364810921}
   - component: {fileID: 8603162285479867077}
   - component: {fileID: 8978621907634627390}
+  - component: {fileID: -6212239010897657178}
   m_Layer: 5
-  m_Name: Grid Element
+  m_Name: Grid Element UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,3 +154,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-6212239010897657178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7586566298069761682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55d4e279dd62464598fc68ce9c93a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
