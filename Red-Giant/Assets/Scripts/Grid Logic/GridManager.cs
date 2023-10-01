@@ -8,12 +8,13 @@ public class GridManager : MonoBehaviour
     public int width = 5;
 
     public GameObject GridElement;
-
+    private GridElement[,] gridElements;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        gridElements = new GridElement[width, height];
         CreateGrid();
     }
 
@@ -28,11 +29,12 @@ public class GridManager : MonoBehaviour
     /// </summary>
     private void CreateGrid()
     {
-        for (int i = 0; i < height; i++)
+        for (int i = 0; i < width; i++)
         {
-            for (int j = 0; j < width; j++)
+            for (int j = 0; j < height; j++)
             {
-                Instantiate(GridElement, new Vector3(i, j), Quaternion.identity, this.transform);
+                GameObject element = Instantiate(GridElement, new Vector3(i, j), Quaternion.identity, this.transform);
+                gridElements[i,j] = element.GetComponent<GridElement>();
             }
         }
     }

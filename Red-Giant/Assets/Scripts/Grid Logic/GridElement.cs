@@ -7,14 +7,10 @@ public class GridElement : MonoBehaviour
 {
     public SpriteRenderer icon;
 
+    public bool locked = false;
+
     [SerializeField] private GameObject highlight;
     [SerializeField] private bool highlighted = false;
-    private BoxCollider2D box;
-
-    private void Start()
-    {
-        box = GetComponent<BoxCollider2D>();
-    }
 
     private void SetHighlight(bool status)
     {

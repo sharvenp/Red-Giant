@@ -8,16 +8,8 @@ public class Block : MonoBehaviour
 {
     public SpriteRenderer icon;
 
-    [SerializeField] private GameObject highlight;
-    [SerializeField] private bool highlighted = false;
     [SerializeField] private bool isDragging = false;
     private Vector2 mouseOffset;
-
-    private void SetHighlight(bool status)
-    {
-        highlight.SetActive(status);
-        highlighted = status;
-    }
 
     private Vector3 MousePosition()
     {
@@ -36,33 +28,15 @@ public class Block : MonoBehaviour
 
     }
 
-    private void OnMouseEnter()
-    {
-        if(!isDragging) { 
-            SetHighlight(true);
-        }
-    }
-
-    private void OnMouseExit()
-    {
-        SetHighlight(false);
-    }
-
     private void OnMouseDown()
     {
         isDragging = true;
         mouseOffset = (Vector2)Camera.main.ScreenToWorldPoint(MousePosition()) - (Vector2)transform.position;
-        SetHighlight(false);
     }
 
     private void OnMouseUp()
     {
         isDragging = false;
-    }
-
-    public bool IsHighLighted()
-    {
-        return highlighted;
     }
 }
 
