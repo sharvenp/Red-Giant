@@ -5060,7 +5060,7 @@ GameObject:
   - component: {fileID: 509649246329045516}
   - component: {fileID: 7298769102911375421}
   m_Layer: 0
-  m_Name: Vector
+  m_Name: Vecstar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
