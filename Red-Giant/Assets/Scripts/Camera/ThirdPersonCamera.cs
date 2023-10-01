@@ -37,7 +37,7 @@ public class ThirdPersonCamera : MonoBehaviour
         transform.rotation = localRotation;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         CameraUpdater();
     }
