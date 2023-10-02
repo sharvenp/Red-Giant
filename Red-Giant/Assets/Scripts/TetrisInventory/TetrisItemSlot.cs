@@ -23,7 +23,7 @@ public class TetrisItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     void Start()
     {
         #region Rescaling
-        //reescalonar o tamanho do item
+
         GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, item.itemSize.y * size.y);
         GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, item.itemSize.x * size.x);
 
@@ -67,6 +67,10 @@ public class TetrisItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     }
 
+    /// <summary>
+    /// Place the item at closest position
+    /// </summary>
+    /// <param name="eventData"></param>
     public void OnEndDrag(PointerEventData eventData)
     {
         if (EventSystem.current.IsPointerOverGameObject())
@@ -82,8 +86,6 @@ public class TetrisItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             {
                 List<Vector2> newPosItem = new List<Vector2>(); //new item position in bag
                 bool fit = false;
-                Debug.Log("Maximo da bag Y é: " + slots.maxGridY + "Atual foi: " + ((int)(finalSlot.y) + (int)(item.itemSize.y) - 1));
-                Debug.Log("Maximo da bag X é: " + slots.maxGridX + "Atual foi: " + ((int)(finalSlot.x) + (int)(item.itemSize.x) - 1));
 
                 for (int sizeY = 0; sizeY < item.itemSize.y; sizeY++) 
                 {
@@ -132,7 +134,7 @@ public class TetrisItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                     transform.GetComponent<RectTransform>().anchoredPosition = new Vector2(newPosItem[0].x * size.x, -newPosItem[0].y * size.y);
                     Debug.Log("Position: " + transform.GetComponent<RectTransform>().anchoredPosition);
                 }
-                else //item voltou pra mesma posição da bag e marca com 1
+                else //item returned to the same position as the bag and marked with 1
                 {
                     for (int i = 0; i < item.itemSize.y; i++) //through item Y
                     {

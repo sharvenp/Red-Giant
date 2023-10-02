@@ -22,13 +22,13 @@ public class TetrisSlot : MonoBehaviour
     public int[,] grid;//2 dimensions
 
     public TetrisInventory playerInventory; //14 slots for each line
-    public List<TetrisItemSlot> itensInBag = new List<TetrisItemSlot>(); // itens in bag
+    public List<TetrisItemSlot> itensInBag = new List<TetrisItemSlot>(); // items in bag
 
     public int maxGridX;
     public int maxGridY;
 
     public TetrisItemSlot prefabSlot; // item prefab
-    Vector2 cellSize = new Vector2(34f, 34f); //slot cell size 
+    Vector2 cellSize = new Vector2(60f, 60f); //slot cell size 
 
     List<Vector2> posItemNaBag = new List<Vector2>(); // new item pos in bag matrix
 
@@ -36,7 +36,7 @@ public class TetrisSlot : MonoBehaviour
     {
         playerInventory = FindObjectOfType<TetrisInventory>();
 
-        maxGridX = 14;
+        maxGridX = 4;
         maxGridY = (int)((playerInventory.numberSlots + 1) / maxGridX);
 
         grid = new int[maxGridX, maxGridY]; // matrix of bag size
@@ -47,9 +47,9 @@ public class TetrisSlot : MonoBehaviour
         int contX = (int)item.itemSize.x; //size of item in x
         int contY = (int)item.itemSize.y; //size of item in y
 
-        for (int i = 0; i < maxGridX ; i++)//bag in X
+        for (int i = 0; i < maxGridX; i++)//bag in X
         {
-            for (int j = 0; j < maxGridY ; j++) //bag in Y
+            for (int j = 0; j < maxGridY; j++) //bag in Y
             {
                 if (posItemNaBag.Count != (contX * contY)) // if false, the item fit the bag
                 {
@@ -64,14 +64,18 @@ public class TetrisSlot : MonoBehaviour
                                 pos.x = i + sizeX;
                                 pos.y = j + sizeY;
                                 posItemNaBag.Add(pos);
-                            } else {
+                            }
+                            else
+                            {
                                 sizeX = contX;
                                 sizeY = contY;
                                 posItemNaBag.Clear();
                             }
                         }
                     }
-                } else {
+                }
+                else
+                {
                     break;
                 }
             }

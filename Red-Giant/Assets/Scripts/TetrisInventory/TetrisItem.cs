@@ -5,21 +5,15 @@ using UnityEngine.UI;
 
 
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Iventory/Tetris/Item")]
+[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Tetris/Item")]
 public class TetrisItem : ScriptableObject
 {
     //Parent tree node (parent of all items)
 
     //Basic information
-    public string itemID; 
     public Sprite itemIcon;
     public string itemName;
-    public string itemDescription;
-    public bool usable;
-    public int currentStackSize;
-    public int MaxStackSize;
     public Vector2 itemSize; //x and y
-    public string rarity;
 
     [SerializeField]
     protected  int att1;
