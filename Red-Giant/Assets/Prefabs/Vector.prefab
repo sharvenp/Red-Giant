@@ -5267,7 +5267,7 @@ MonoBehaviour:
   yawPower: 8
   enginePower: 175
   maxFuel: 200
-  drainRate: 2
+  drainRate: 5
   fuelImage: {fileID: 0}
   rollAcceleration: 4
   pitchAcceleration: 4

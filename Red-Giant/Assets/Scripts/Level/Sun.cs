@@ -7,6 +7,8 @@ public class Sun : MonoBehaviour
     public GameStateManager state;
     public LayerMask playerMask;
 
+    public Player player;
+
     //public Material material;
     //private float next_time;
     public float color_update_interval = 0.1f;
@@ -31,7 +33,15 @@ public class Sun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localScale += new Vector3(growth_rate, growth_rate, growth_rate) * Time.deltaTime;
+
+        Vector3 scaler = new Vector3(growth_rate, growth_rate, growth_rate) * Time.deltaTime;
+
+        if (player.GetFuel() == 0f)
+        {
+            scaler *= 2;
+        }
+
+        transform.localScale += scaler;
 
         /*if (curr_color != colors.Length - 1)
         {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
 using UnityEngine.UI;
+using TMPro;
+using Unity.Burst.CompilerServices;
 
 public class Player : MonoBehaviour
 {
@@ -20,6 +22,8 @@ public class Player : MonoBehaviour
 
     public AudioSource thursterAudio;
 
+    public TextMeshProUGUI speedText;
+
     private float activeRoll, activePitch, activeYaw;
     Rigidbody rb;
 
@@ -32,6 +36,11 @@ public class Player : MonoBehaviour
         UpdateExhausts(frontExhausts, false);
         fuelImage.fillAmount = 1;
         fuel = maxFuel;
+    }
+
+    public float GetFuel()
+    {
+        return fuel;
     }
 
     public void Refuel(float fuelAmount)
@@ -111,5 +120,8 @@ public class Player : MonoBehaviour
                             activeYaw * yawPower * Time.deltaTime,
                             -activeRoll * rollPower * Time.deltaTime);
 
+        float speed = rb.velocity.magnitude;
+        string speedString = speed.ToString("0.00");
+        speedText.text = $"{speedString} KM/S";
     }
 }
