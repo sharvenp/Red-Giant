@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 public class PlanetSpawner : MonoBehaviour
 {
     public Planet[] planets;
-    public float spawn_box_size = 10f;
+    public float spawn_box_size = 10000f;
     public float spawn_box_dist = 20f;
     public Sun sun;
 
@@ -17,18 +17,25 @@ public class PlanetSpawner : MonoBehaviour
     float interval;
     public float spawn_rate = 1f;
 
+    Planet spawn()
+    {
+        var rand = Random.Range(0, planets.Length);
+        Planet new_planet = Instantiate(planets[rand]);
+        new_planet.transform.position += new Vector3(Random.Range(-spawn_box_size, spawn_box_size),
+                                                     Random.Range(-spawn_box_size, spawn_box_size),
+                                                     Random.Range(sun.transform.localScale.x + spawn_box_dist, sun.transform.localScale.x + spawn_box_dist + spawn_box_size));
+        new_planet.pool = pool;
+        return new_planet;
+    }
     void Start()
     {
         pool = new ObjectPool<Planet>(() => {
-            var rand = Random.Range(0, planets.Length);
-            Planet new_planet = Instantiate(planets[rand]);
-            new_planet.transform.position += new Vector3(Random.Range(-spawn_box_size, spawn_box_size),
-                                                         Random.Range(-spawn_box_size, spawn_box_size),
-                                                         Random.Range(sun.transform.localScale.x + spawn_box_dist, sun.transform.localScale.x + spawn_box_dist + spawn_box_size / 2));
-            new_planet.pool = pool;
-            return new_planet;
+            return spawn();
         }, planet => {
             planet.gameObject.SetActive(true);
+            planet.transform.position += new Vector3(Random.Range(-spawn_box_size, spawn_box_size),
+                                             Random.Range(-spawn_box_size, spawn_box_size),
+                                             Random.Range(sun.transform.localScale.x + spawn_box_dist, sun.transform.localScale.x + spawn_box_dist + spawn_box_size));
         }, planet => {
             planet.gameObject.SetActive(false);
         }, planet => {

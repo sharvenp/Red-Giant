@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7438909271262217031}
   - component: {fileID: 4302383653208093905}
   - component: {fileID: 6157751785228422579}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3946370807034891768}
-  m_Layer: 0
+  - component: {fileID: 4579044946655550235}
+  m_Layer: 21
   m_Name: Planet1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,6 +140,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 20, y: 90, z: 17}
+--- !u!114 &4579044946655550235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2469732947206048544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b0cc45209551a4f89ec0392ac9400c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIManager: {fileID: 0}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 1048576
+  sunMask:
+    serializedVersion: 2
+    m_Bits: 4194304
+  destroyTime: 5
 --- !u!1 &3716157538686962376
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +171,7 @@ GameObject:
   - component: {fileID: 403066756425577367}
   - component: {fileID: 4569510865383589566}
   - component: {fileID: 367727942976352405}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
