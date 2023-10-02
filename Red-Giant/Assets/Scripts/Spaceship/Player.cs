@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public ParticleSystem[] backExhausts;
     public ParticleSystem[] frontExhausts;
 
+    public AudioSource thursterAudio;
+
     private float activeRoll, activePitch, activeYaw;
     Rigidbody rb;
 
@@ -31,9 +33,11 @@ public class Player : MonoBehaviour
             if (isOn && !exhaust.isPlaying)
             {
                 exhaust.Play();
+                thursterAudio.Play();
             }
             else if (!isOn && exhaust.isPlaying)
             {
+                thursterAudio.Pause();
                 exhaust.Stop();
             }
         }

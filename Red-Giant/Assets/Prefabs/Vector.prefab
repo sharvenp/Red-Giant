@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2391685751578428219}
-  m_Layer: 2
+  m_Layer: 20
   m_Name: CameraFollow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 5874417104861281132}
   - component: {fileID: 22929527535475117}
   - component: {fileID: 7083316191852963592}
-  m_Layer: 2
+  m_Layer: 20
   m_Name: Torus.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 7260075608572859392}
   - component: {fileID: 1214077236969032339}
   - component: {fileID: 3264768189361546843}
-  m_Layer: 2
+  m_Layer: 20
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,6 +220,134 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2787567920456424445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4403855512879067157}
+  - component: {fileID: 4813742013021337804}
+  m_Layer: 20
+  m_Name: ThrusterAudioSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4403855512879067157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2787567920456424445}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2661616054851202113}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &4813742013021337804
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2787567920456424445}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0dad40f53b635884cb4e9633060b9c82, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2833328535217852071
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +359,7 @@ GameObject:
   - component: {fileID: 8342582236785792402}
   - component: {fileID: 3626421985811094721}
   - component: {fileID: 3712764170926005944}
-  m_Layer: 2
+  m_Layer: 20
   m_Name: BackExhaust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5059,7 +5187,7 @@ GameObject:
   - component: {fileID: 2661616054851202113}
   - component: {fileID: 509649246329045516}
   - component: {fileID: 7298769102911375421}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Vector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5089,8 +5217,9 @@ Transform:
   - {fileID: 3061035330178598071}
   - {fileID: 1365947828844036653}
   - {fileID: 2391685751578428219}
+  - {fileID: 4403855512879067157}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &509649246329045516
 Rigidbody:
@@ -5143,6 +5272,7 @@ MonoBehaviour:
   frontExhausts:
   - {fileID: 8070581729868814725}
   - {fileID: 1380165188705733293}
+  thursterAudio: {fileID: 4813742013021337804}
 --- !u!1 &3519382597012068215
 GameObject:
   m_ObjectHideFlags: 0
@@ -5156,7 +5286,7 @@ GameObject:
   - component: {fileID: 9213029754114414440}
   - component: {fileID: 5899766480682782107}
   - component: {fileID: 6714624177979644527}
-  m_Layer: 2
+  m_Layer: 20
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5284,7 +5414,7 @@ GameObject:
   - component: {fileID: 5021732991138963555}
   - component: {fileID: 6910842521511291032}
   - component: {fileID: 6529720918800003362}
-  m_Layer: 2
+  m_Layer: 20
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5389,7 +5519,7 @@ GameObject:
   - component: {fileID: 544110688420260991}
   - component: {fileID: 8070581729868814725}
   - component: {fileID: 3944140837187184752}
-  m_Layer: 2
+  m_Layer: 20
   m_Name: FrontExhaustR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10217,7 +10347,7 @@ GameObject:
   - component: {fileID: 4459687183891353191}
   - component: {fileID: 1380165188705733293}
   - component: {fileID: 148923385857236264}
-  m_Layer: 2
+  m_Layer: 20
   m_Name: FrontExhaustL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15045,7 +15175,7 @@ GameObject:
   - component: {fileID: 6282309083736823800}
   - component: {fileID: 7453643506693667330}
   - component: {fileID: 2641571807507239967}
-  m_Layer: 2
+  m_Layer: 20
   m_Name: Torus.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15127,6 +15257,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 47583779802924575, guid: 3801f80cade6c874aaa3d15d956f5908,
         type: 3}
+      propertyPath: m_Time
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 47583779802924575, guid: 3801f80cade6c874aaa3d15d956f5908,
+        type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
       value: 1
       objectReference: {fileID: 0}
@@ -15173,7 +15308,7 @@ PrefabInstance:
     - target: {fileID: 5172777302818028201, guid: 3801f80cade6c874aaa3d15d956f5908,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8271558467969184383, guid: 3801f80cade6c874aaa3d15d956f5908,
         type: 3}
@@ -15251,6 +15386,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 47583779802924575, guid: 3801f80cade6c874aaa3d15d956f5908,
         type: 3}
+      propertyPath: m_Time
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 47583779802924575, guid: 3801f80cade6c874aaa3d15d956f5908,
+        type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
       value: 1
       objectReference: {fileID: 0}
@@ -15297,7 +15437,7 @@ PrefabInstance:
     - target: {fileID: 5172777302818028201, guid: 3801f80cade6c874aaa3d15d956f5908,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8271558467969184383, guid: 3801f80cade6c874aaa3d15d956f5908,
         type: 3}
