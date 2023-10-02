@@ -15,6 +15,18 @@ public class Planet : MonoBehaviour
     private float destroyTimer;
     private bool isDestroyed;
 
+    private void OnEnable()
+    {
+        if (gameObject.tag == "Planet")
+        {
+            Renderer[] rend = GetComponentsInChildren<Renderer>();
+            foreach (Renderer r in rend)
+            {
+                r.material.color = Random.ColorHSV(0f, 1f, 0f, 1f, 0f, 1f);
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
