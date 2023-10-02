@@ -34,6 +34,12 @@ public class Player : MonoBehaviour
         fuel = maxFuel;
     }
 
+    public void Refuel(float fuelAmount)
+    {
+        fuel += fuelAmount;
+        fuel = Mathf.Clamp(fuel, 0, maxFuel);
+    }
+
     private void UpdateExhausts(ParticleSystem[] exhausts, bool isOn)
     {
         foreach(var exhaust in exhausts)
@@ -80,10 +86,9 @@ public class Player : MonoBehaviour
         if (engine != 0f)
         {
             fuel -= drainRate * Time.deltaTime;
-            fuelImage.fillAmount = (fuel / maxFuel);
-
             fuel = Mathf.Clamp(fuel, 0f, maxFuel);
         }
+        fuelImage.fillAmount = (fuel / maxFuel);
 
         if (fuel == 0f)
         {

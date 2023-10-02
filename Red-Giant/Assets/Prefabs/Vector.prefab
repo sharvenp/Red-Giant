@@ -5187,9 +5187,10 @@ GameObject:
   - component: {fileID: 2661616054851202113}
   - component: {fileID: 509649246329045516}
   - component: {fileID: 7298769102911375421}
+  - component: {fileID: 1163234288926813997}
   m_Layer: 20
   m_Name: Vector
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5219,7 +5220,7 @@ Transform:
   - {fileID: 2391685751578428219}
   - {fileID: 4403855512879067157}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &509649246329045516
 Rigidbody:
@@ -5263,8 +5264,8 @@ MonoBehaviour:
   pitchPower: 12
   rollPower: 12
   yawPower: 8
-  enginePower: 100
-  maxFuel: 50
+  enginePower: 150
+  maxFuel: 100
   drainRate: 2
   fuelImage: {fileID: 0}
   rollAcceleration: 4
@@ -5276,6 +5277,18 @@ MonoBehaviour:
   - {fileID: 8070581729868814725}
   - {fileID: 1380165188705733293}
   thursterAudio: {fileID: 4813742013021337804}
+--- !u!114 &1163234288926813997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3154850401812870011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e010c883f3f8543b924da041ed9df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3519382597012068215
 GameObject:
   m_ObjectHideFlags: 0

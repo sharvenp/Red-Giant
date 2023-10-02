@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Sun : MonoBehaviour
 {
+    public GameStateManager state;
+    public LayerMask playerMask;
+
+    // gang
     public Material material;
     private float next_time;
     public float color_update_interval = 0.1f;
@@ -11,6 +15,7 @@ public class Sun : MonoBehaviour
     public float color_mix_rate = 0.1f;
     private float color_mix = 0f;
     public float hold_color = 5.0f;
+
 
     public float growth_rate = 0.5f;
     Renderer rend;
@@ -47,5 +52,14 @@ public class Sun : MonoBehaviour
             }
         }
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (playerMask == (playerMask | (1 << other.gameObject.layer)))
+        {
+            other.transform.parent.gameObject.SetActive(false);
+            state.TriggerPlayerDead();
+        }
     }
 }

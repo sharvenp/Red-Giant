@@ -4,27 +4,41 @@ using UnityEngine;
 
 public class Attractor : MonoBehaviour
 {
-    public Rigidbody rb;
+    Rigidbody rb;
     const float G = 999.5f;
 
     public static List<Attractor> Attractors;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     private void FixedUpdate()
     {
         foreach (Attractor attractor in Attractors)
         {
             if (attractor != this)
-            Attract(attractor);
+            {
+                Attract(attractor);
+            }
         }
 
     }
 
     void OnEnable()
     {
-        if (Attractors == null)
-            Attractors = new List<Attractor>();
-        Attractors.Add(this);
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody>();
+        }
 
+        if (!rb.isKinematic)
+        {
+            if (Attractors == null)
+                Attractors = new List<Attractor>();
+            Attractors.Add(this);
+        }
     }
 
     void OnDisable()

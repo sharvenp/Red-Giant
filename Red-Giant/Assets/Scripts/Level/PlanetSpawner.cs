@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Pool;
 
 public class PlanetSpawner : MonoBehaviour
 {
     public Planet[] planets;
+    public float[] weights;
     public float spawn_box_size = 10000f;
     public float spawn_box_dist = 20f;
     public Sun sun;
+    public int initSpawnCount = 40;
 
 
     ObjectPool<Planet> pool;
-
+    float totalWeight;
     float timer;
     float interval;
     public float spawn_rate = 1f;
@@ -29,6 +32,8 @@ public class PlanetSpawner : MonoBehaviour
     }
     void Start()
     {
+        totalWeight = weights.Sum();
+
         pool = new ObjectPool<Planet>(() => {
             return spawn();
         }, planet => {
@@ -45,7 +50,7 @@ public class PlanetSpawner : MonoBehaviour
         timer = Time.time;
         interval = 1f / spawn_rate;
 
-        for (int i =0; i < 40; i++)
+        for (int i =0; i < initSpawnCount; i++)
         {
             pool.Get();
         }

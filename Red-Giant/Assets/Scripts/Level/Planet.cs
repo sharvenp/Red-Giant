@@ -7,10 +7,10 @@ public class Planet : MonoBehaviour
 {
     public ObjectPool<Planet> pool;
 
-    public UIManager UIManager;
     public LayerMask playerMask;
     public LayerMask sunMask;
     public float destroyTime = 5.0f;
+    public float refuelAmount;
 
     private float destroyTimer;
     private bool isDestroyed;
@@ -34,8 +34,14 @@ public class Planet : MonoBehaviour
     {
         if (playerMask == (playerMask | (1 << other.gameObject.layer)))
         {
-            UIManager.SetUIState(true);
+            if (gameObject.tag == "Astroid")
+            {
+                other.transform.parent.gameObject.GetComponent<Player>().Refuel(refuelAmount);
+                isDestroyed = true;
+                pool.Get();
+            }
         }
+
         if (sunMask == (sunMask | (1 << other.gameObject.layer)))
         {
             isDestroyed = true;
@@ -44,11 +50,4 @@ public class Planet : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (playerMask == (playerMask | (1 << other.gameObject.layer)))
-        {
-            UIManager.SetUIState(false);
-        }
-    }
 }
