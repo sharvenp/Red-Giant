@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     {
         fuel += fuelAmount;
         fuel = Mathf.Clamp(fuel, 0, maxFuel);
+        Debug.Log(fuel);
     }
 
     private void UpdateExhausts(ParticleSystem[] exhausts, bool isOn)

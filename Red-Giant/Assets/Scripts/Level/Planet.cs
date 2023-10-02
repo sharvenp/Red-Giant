@@ -12,6 +12,8 @@ public class Planet : MonoBehaviour
     public float destroyTime = 5.0f;
     public float refuelAmount;
 
+    public AudioClip refuelSound;
+
     private float destroyTimer;
     private bool isDestroyed;
 
@@ -22,7 +24,9 @@ public class Planet : MonoBehaviour
             Renderer[] rend = GetComponentsInChildren<Renderer>();
             foreach (Renderer r in rend)
             {
-                r.material.color = Random.ColorHSV(0f, 1f, 0f, 1f, 0f, 1f);
+                Color c = Random.ColorHSV(0f, 1f, 0f, 1f, 0f, 1f);
+                r.material.color = c;
+                r.material.SetColor("_EmissionColor", c * Random.Range(0.1f, 2f));
             }
         }
     }
@@ -36,7 +40,7 @@ public class Planet : MonoBehaviour
             if (destroyTimer < 0)
             {
                 isDestroyed = false;
-                pool.Release(this);
+                pool?.Release(this);
             }
         }
 
@@ -49,8 +53,9 @@ public class Planet : MonoBehaviour
             if (gameObject.tag == "Astroid")
             {
                 other.transform.parent.gameObject.GetComponent<Player>().Refuel(refuelAmount);
+                other.transform.parent.gameObject.GetComponent<AudioSource>().PlayOneShot(refuelSound);
                 isDestroyed = true;
-                pool.Get();
+                pool?.Get();
             }
         }
 
@@ -58,7 +63,7 @@ public class Planet : MonoBehaviour
         {
             isDestroyed = true;
             destroyTimer = destroyTime;
-            pool.Get();
+            pool?.Get();
         }
     }
 

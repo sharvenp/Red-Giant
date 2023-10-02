@@ -9,6 +9,7 @@ public class PlanetSpawner : MonoBehaviour
     public Planet[] planets;
     public float[] weights;
     public float spawn_box_size = 10000f;
+    public float spawn_max_dist = 10;
     public float spawn_box_dist = 20f;
     public Sun sun;
     public int initSpawnCount = 40;
@@ -16,15 +17,12 @@ public class PlanetSpawner : MonoBehaviour
 
     ObjectPool<Planet> pool;
     float totalWeight;
-    float timer;
-    float interval;
-    public float spawn_rate = 1f;
 
     void randomizePlanet(Planet planet)
     {
-        planet.transform.position += new Vector3(Random.Range(-spawn_box_size, spawn_box_size),
+        planet.transform.position = new Vector3(Random.Range(-spawn_box_size, spawn_box_size),
                                                      Random.Range(-spawn_box_size, spawn_box_size),
-                                                     Random.Range(sun.transform.localScale.x + spawn_box_dist, sun.transform.localScale.x + spawn_box_dist + spawn_box_size));
+                                                     Random.Range(sun.transform.localScale.x + spawn_box_dist, sun.transform.localScale.x + spawn_box_dist + spawn_max_dist));
         planet.transform.rotation = Random.rotation;
     }
 
@@ -63,22 +61,9 @@ public class PlanetSpawner : MonoBehaviour
             Destroy(planet.gameObject);
         });
 
-        timer = Time.time;
-        interval = 1f / spawn_rate;
-
         for (int i =0; i < initSpawnCount; i++)
         {
             pool.Get();
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*if (Time.time - timer > interval)
-        {
-            Planet planet = pool.Get();
-            timer = Time.time;
-        }*/
     }
 }

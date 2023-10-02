@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6538203566959564233
 MeshFilter:
@@ -122,13 +122,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 1048576
-  material: {fileID: 2100000, guid: 436666950c5aec9498bbfb8780319316, type: 2}
   color_update_interval: 0.1
   color_mix_rate: 0.1
   hold_color: 5
   growth_rate: 8
-  colors:
-  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0, b: 1, a: 1}
-  - {r: 0, g: 0, b: 0, a: 1}
