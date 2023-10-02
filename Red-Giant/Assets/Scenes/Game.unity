@@ -489,6 +489,10 @@ MonoBehaviour:
   - {fileID: 4579044946655550235, guid: 5d0ee2d5f6db6b243bf392b015a16c73, type: 3}
   - {fileID: 2665957782131303038, guid: 08b03683f0a8cbb499e5b73fdbfd4730, type: 3}
   - {fileID: 8871737499396303586, guid: 73a49e8504beb7d4a9ccdb3078f5f0da, type: 3}
+  weights:
+  - 3
+  - 2
+  - 6
   spawn_box_size: 400
   spawn_box_dist: 10
   sun: {fileID: 46075663}
@@ -987,7 +991,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108063937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.007, z: 10.44}
+  m_LocalPosition: {x: 0, y: -0.007, z: 14.455}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1374,7 +1378,7 @@ PrefabInstance:
     - target: {fileID: 2661616054851202113, guid: e67f69525a8703140b567e75490899d7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.653
+      value: 14.668
       objectReference: {fileID: 0}
     - target: {fileID: 2661616054851202113, guid: e67f69525a8703140b567e75490899d7,
         type: 3}

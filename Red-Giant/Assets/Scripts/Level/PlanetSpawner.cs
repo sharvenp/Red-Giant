@@ -22,8 +22,20 @@ public class PlanetSpawner : MonoBehaviour
 
     Planet spawn()
     {
-        var rand = Random.Range(0, planets.Length);
-        Planet new_planet = Instantiate(planets[rand]);
+        int selectedIdx = 0;
+        float spawnRandomWeight = Random.Range(0, totalWeight);
+
+        for (int i = 0; i < planets.Length; i++)
+        {
+            if (spawnRandomWeight <= weights[i])
+            {
+                selectedIdx = i;
+                break;
+            }
+            spawnRandomWeight -= weights[i];
+        }
+
+        Planet new_planet = Instantiate(planets[selectedIdx]);
         new_planet.transform.position += new Vector3(Random.Range(-spawn_box_size, spawn_box_size),
                                                      Random.Range(-spawn_box_size, spawn_box_size),
                                                      Random.Range(sun.transform.localScale.x + spawn_box_dist, sun.transform.localScale.x + spawn_box_dist + spawn_box_size));
