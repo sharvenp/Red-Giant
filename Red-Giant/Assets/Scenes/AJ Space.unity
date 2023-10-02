@@ -1645,21 +1645,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7298769102911375421, guid: e67f69525a8703140b567e75490899d7,
         type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7298769102911375421, guid: e67f69525a8703140b567e75490899d7,
-        type: 3}
-      propertyPath: maxFuel
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7298769102911375421, guid: e67f69525a8703140b567e75490899d7,
-        type: 3}
-      propertyPath: drainRate
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7298769102911375421, guid: e67f69525a8703140b567e75490899d7,
-        type: 3}
       propertyPath: fuelImage
       value: 
       objectReference: {fileID: 1678306917}
