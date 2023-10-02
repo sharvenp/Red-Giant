@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     public float maxFuel = 100f;
     public float drainRate = 0.5f;
-    public Slider slider;
+    public Image fuelImage;
     public float rollAcceleration = 2f;
     public float pitchAcceleration = 2f;
     public float yawAcceleration = 2f;
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         UpdateExhausts(backExhausts, false);
         UpdateExhausts(frontExhausts, false);
-        slider.value = 1;
+        fuelImage.fillAmount = 1;
         fuel = maxFuel;
     }
 
@@ -55,13 +55,13 @@ public class Player : MonoBehaviour
     {
         float engine = 0f;
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && fuel > 0f)
         {
             engine = enginePower;
             UpdateExhausts(backExhausts, true);
         }
 
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftControl) && fuel > 0f)
         {
             engine = -enginePower;
             UpdateExhausts(frontExhausts, true);
@@ -80,7 +80,15 @@ public class Player : MonoBehaviour
         if (engine != 0f)
         {
             fuel -= drainRate * Time.deltaTime;
-            slider.value = (fuel / maxFuel);
+            fuelImage.fillAmount = (fuel / maxFuel);
+
+            fuel = Mathf.Clamp(fuel, 0f, maxFuel);
+        }
+
+        if (fuel == 0f)
+        {
+            UpdateExhausts(backExhausts, false);
+            UpdateExhausts(frontExhausts, false);
         }
 
         rb.AddForce(transform.forward * engine * Time.deltaTime);
