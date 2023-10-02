@@ -24,9 +24,9 @@ public class Planet : MonoBehaviour
             Renderer[] rend = GetComponentsInChildren<Renderer>();
             foreach (Renderer r in rend)
             {
-                Color c = Random.ColorHSV(0f, 1f, 0f, 1f, 0f, 1f);
+                Color c = Random.ColorHSV(0f, 1f, 0.5f, 1f, 0.5f, 1f);
                 r.material.color = c;
-                r.material.SetColor("_EmissionColor", c * Random.Range(0.1f, 2f));
+                r.material.SetColor("_EmissionColor", c * Random.Range(0.2f, 2f));
             }
         }
     }
