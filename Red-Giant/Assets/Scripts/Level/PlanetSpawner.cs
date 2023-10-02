@@ -20,6 +20,14 @@ public class PlanetSpawner : MonoBehaviour
     float interval;
     public float spawn_rate = 1f;
 
+    void randomizePlanet(Planet planet)
+    {
+        planet.transform.position += new Vector3(Random.Range(-spawn_box_size, spawn_box_size),
+                                                     Random.Range(-spawn_box_size, spawn_box_size),
+                                                     Random.Range(sun.transform.localScale.x + spawn_box_dist, sun.transform.localScale.x + spawn_box_dist + spawn_box_size));
+        planet.transform.rotation = Random.rotation;
+    }
+
     Planet spawn()
     {
         int selectedIdx = 0;
@@ -36,9 +44,7 @@ public class PlanetSpawner : MonoBehaviour
         }
 
         Planet new_planet = Instantiate(planets[selectedIdx]);
-        new_planet.transform.position += new Vector3(Random.Range(-spawn_box_size, spawn_box_size),
-                                                     Random.Range(-spawn_box_size, spawn_box_size),
-                                                     Random.Range(sun.transform.localScale.x + spawn_box_dist, sun.transform.localScale.x + spawn_box_dist + spawn_box_size));
+        randomizePlanet(new_planet);
         new_planet.pool = pool;
         return new_planet;
     }
@@ -50,9 +56,7 @@ public class PlanetSpawner : MonoBehaviour
             return spawn();
         }, planet => {
             planet.gameObject.SetActive(true);
-            planet.transform.position += new Vector3(Random.Range(-spawn_box_size, spawn_box_size),
-                                             Random.Range(-spawn_box_size, spawn_box_size),
-                                             Random.Range(sun.transform.localScale.x + spawn_box_dist, sun.transform.localScale.x + spawn_box_dist + spawn_box_size));
+            randomizePlanet(planet);
         }, planet => {
             planet.gameObject.SetActive(false);
         }, planet => {
