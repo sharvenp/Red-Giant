@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 using UnityEngine.UI;
 using TMPro;
-using Unity.Burst.CompilerServices;
 
 public class Player : MonoBehaviour
 {
